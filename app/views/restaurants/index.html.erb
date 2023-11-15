@@ -1,0 +1,14 @@
+<div class='container'>
+  <h1>Index</h1>
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+      <div class="d-flex justify-content-between">
+      <li><%=link_to restaurant.name, restaurant_path(restaurant) %></li>
+      <%= link_to delete_from_index_path(restaurant), data: {turbo_method: :delete, turbo_confirm: 'Are you Sure?'} do %>
+        <i class="fa-solid fa-xmark"></i>
+      <% end %>
+      </div>
+    <% end %>
+  </ul>
+  <%= link_to 'New restaurant', new_restaurant_path %>
+</div>
